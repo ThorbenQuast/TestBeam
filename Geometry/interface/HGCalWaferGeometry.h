@@ -6,6 +6,10 @@
 #include <string>
 #include <vector>
 
+#include <TCanvas.h>
+#include <TH2F.h>
+#include <TPaveText.h>
+
 #include "HGCal/Geometry/interface/HGCalTBCellParameters.h"
   
 
@@ -18,11 +22,17 @@ public :
   HexGeometry(bool fine);
   ~HexGeometry();
 
+  void printGeometry();
+
   std::pair<double,double> position(const int cell);
   int cellType(const int cell);
 
 
 private :
+  double xMin;
+  double xMax;
+  double yMin;
+  double yMax;
   std::vector<std::pair<double,double> > xypos;
   std::vector<int> types;
 
